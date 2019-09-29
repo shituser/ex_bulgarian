@@ -1,14 +1,14 @@
 defmodule ExBulgarian do
   @moduledoc """
-    Transliteration of letters from latin to cyrrilic in Bulgarian language
+    Elixir transliteration for Bulgarian language. Converts latin characters into cyrillic, according to official and commonly used transliteration patterns in Bulgaria.
 
-    Транслитерация на буквите от латиница на кирилица
+    Транслитерация на буквите от латиница на кирилица.
 
-    iex> ExBulgarian.transliterate("Sofiya e stolitsata na Bylgariya")
-    "София е столицата на България"
+        iex> ExBulgarian.transliterate("Sofiya e stolitsata na Bylgariya")
+        "София е столицата на България"
 
-    iex> ExBulgarian.transliterate("Veliko T1rnowo e starata stolica na B1lgariq")
-    "Велико Търново е старата столица на България"
+        iex> ExBulgarian.transliterate("Veliko T1rnowo e starata stolica na B1lgariq")
+        "Велико Търново е старата столица на България"
 
     Transliteration entirely based on Anatoliy Kovalchuk package
     https://github.com/Kr00lIX/russian_elixir/

@@ -3,9 +3,9 @@
     import ExBulgarian.Vocabulary
 
     @doc """
-    Transliteration of letters from latin to cyrrilic in Bulgarian
+      Transliteration of letters from latin to cyrrilic in Bulgarian
 
-    Транслитерация на буквите от латиница на кирилица
+      Транслитерация на буквите от латиница на кирилица
     """
     @spec transliterate(String.t) :: String.t
     def transliterate(str) do
