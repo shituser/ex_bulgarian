@@ -4,6 +4,7 @@ defmodule ExBulgarian.MixProject do
   def project do
     [
       app: :ex_bulgarian,
+      description: "Elixir transliteration for Bulgarian language. Converts latin characters into cyrillic, according to official and commonly used transliteration patterns in Bulgaria.",
       version: "0.1.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
