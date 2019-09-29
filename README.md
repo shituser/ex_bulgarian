@@ -17,7 +17,3 @@ end
 ```elixir
 ExBulgarian.transliterate "Sofiya e stolitsata na Bylgariya"
 ```
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ex_bulgarian](https://hexdocs.pm/ex_bulgarian).
-
