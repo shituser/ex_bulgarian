@@ -8,12 +8,21 @@ Add the dependency to your mix.exs file:
 ```elixir
 def deps do
   [
-    {:ex_bulgarian, "~> 0.1.0"}
+    {:ex_bulgarian, "~> 0.1.1"}
   ]
 end
 ```
-
 ## Usage
 ```elixir
 ExBulgarian.transliterate "Sofiya e stolitsata na Bylgariya"
+```
+OR
+```elixir
+defmodule ExampleModule do
+  use ExBulgarian
+
+  def example do
+    transliterate "Sofiya"
+  end
+end
 ```
