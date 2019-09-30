@@ -23,8 +23,10 @@ defmodule ExBulgarian.Vocabulary do
     "u" => "у",
     "f" => "ф",
     "h" => "х",
+    "x" => "х",
     "c" => "ц",
     "4" => "ч",
+    "6" => "ш",
     "y" => "ъ",
     "1" => "ъ",
     "q" => "я",
@@ -34,11 +36,12 @@ defmodule ExBulgarian.Vocabulary do
     "zh"  => "ж",
     "ts"  => "ц",
     "ch"  => "ч",
-    "sht" => "щ",
     "sh"  => "ш",
+    "sht" => "щ",
     "yu"  => "ю",
     "ya"  => "я",
     "ja"  => "я",
+    "6t"  => "щ",
   }
 
   @uppper_single  %{
@@ -65,16 +68,17 @@ defmodule ExBulgarian.Vocabulary do
     "F" => "Ф",
     "C" => "Ц",
     "H" => "Х",
+    "X" => "Х",
     "Y" => "Ъ",
-    "Q"  => "Я",
+    "Q" => "Я",
   }
 
   @upper_multi %{
     "Zh"  => "Ж",
     "Ts"  => "Ц",
     "Ch"  => "Ч",
-    "Sht" => "Щ",
     "Sh"  => "Ш",
+    "Sht" => "Щ",
     "Yu"  => "Ю",
     "Ya"  => "Я",
     "Ja"  => "Я",
@@ -83,10 +87,18 @@ defmodule ExBulgarian.Vocabulary do
   @lower Map.merge(@lower_single, @lower_multi)
   @upper Map.merge(@uppper_single, @upper_multi)
 
-  multi_keys_regex = Map.merge(@lower_multi, @upper_multi) |> Map.keys |> Enum.join("|")
-  @chars_regex ~r/(#{multi_keys_regex}|\w|.)/um
-
   def lower, do: @lower
+
   def upper, do: @upper
-  def chars_regex, do: @chars_regex
+
+  def multi_chars_regex do
+    regex =
+      Map.merge(@lower_multi, @upper_multi)
+      |> Map.keys
+      # Keep the Sht, before Sh, since Elixir orders maps by default
+      |> Enum.reverse
+      |> Enum.join("|")
+
+  ~r/(#{regex}|\w|.)/um
+  end
 end

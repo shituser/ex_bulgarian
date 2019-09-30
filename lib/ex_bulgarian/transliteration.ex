@@ -9,7 +9,7 @@
     """
     @spec transliterate(String.t) :: String.t
     def transliterate(str) do
-      trans_chars Regex.scan(chars_regex(), str, capture: :first)
+      trans_chars Regex.scan(multi_chars_regex(), str, capture: :first)
     end
 
     defp trans_chars([[nil]]) do
@@ -20,11 +20,9 @@
       trans_chars [[char], [nil]]
     end
 
-    defp trans_chars([[char], [nchar] | tail]) do
+    defp trans_chars([ [char] | tail ]) do
       result =
         cond do
-          Map.has_key?(upper(), char) && Map.has_key?(lower(), nchar) ->
-            upper()[char] |> String.downcase |> String.capitalize
           Map.has_key?(upper(), char) ->
             upper()[char]
           Map.has_key?(lower(), char) ->
@@ -32,6 +30,6 @@
           true ->
             char
         end
-      result <> trans_chars([ [nchar] | tail])
+      result <> trans_chars(tail)
     end
   end

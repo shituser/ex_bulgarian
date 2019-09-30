@@ -10,7 +10,7 @@ defmodule ExBulgarian do
         iex> ExBulgarian.transliterate("Veliko T1rnowo e starata stolica na B1lgariq")
         "Велико Търново е старата столица на България"
 
-    Transliteration entirely based on Anatoliy Kovalchuk package
+    Transliteration entirely based on Anatoliy Kovalchuk's package
     https://github.com/Kr00lIX/russian_elixir/
   """
 
